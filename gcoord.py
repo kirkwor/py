@@ -28,10 +28,15 @@ def deg_min_str_to_dec(position):
     ''' 
     if " " in position:
         l = position.split(" ")
+        #print the value of l and line identifier (can be anything, not just line32)
+        print('line32',l)
         deg = int(l[0])
+        print('line34',deg)
         minut = float(l[1])
+        print('line35',minut)
         if l[-1] in ['S', 'W']:
             sph = -1
+            print('line39',sph)
         else:
             sph = 1
     elif ";" in position:
@@ -66,6 +71,17 @@ def deg_min_str_to_dec(position):
     coord = ((deg + minut/60)*sph)
     return round(coord, 8)
 # Run doctest through the top Examples, if no errors = no output, change a result to get an error
-if __name__=="__main__":
-    import doctest
-    doctest.testmod()
+
+print(deg_min_str_to_dec('50 05.0713061 N'))
+print(deg_min_str_to_dec('005 41.9434092 W'))
+print(deg_min_str_to_dec('50 05.0713061 N'))
+print(deg_min_str_to_dec('55;18.7116860N'))
+print(deg_min_str_to_dec('5023.1994,N'))
+print(deg_min_str_to_dec('00408.6421,W'))
+print(deg_min_str_to_dec('5023.1994,S'))
+print(deg_min_str_to_dec('00408.6421,E'))
+
+
+#if __name__=="__main__":
+#    import doctest
+#    doctest.testmod()
